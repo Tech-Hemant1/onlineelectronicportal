@@ -1,0 +1,229 @@
+<!--  <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<center>
+	
+	<h1>
+		<u>Add Products</u><br><br>
+		
+		<form action="aps" method="post">
+		
+			Product Code <input type="text" name="pcode"><br><br>
+			Product Name <input type="text" name="pname"><br><br>
+			Product Company <input type="text" name="pcompany"><br><br>
+			Product Price <input type="text" name="pprice"><br><br>
+			Product Quantity <input type="text" name="pqty"><br><br>
+			
+			
+			<input type="submit" value="Add Product"/>
+		
+		</form>
+	</h1>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Product</title>
+
+<!-- ===== CSS Styling ===== -->
+<style>
+  /* ---- General Page Style ---- */
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #0a0a0a, #000);
+    color: #0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ---- Heading ---- */
+  h1 {
+    text-align: center;
+    color: #0ff;
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    animation: textGlow 2s infinite alternate;
+    margin-bottom: 40px;
+  }
+
+  @keyframes textGlow {
+    from { text-shadow: 0 0 10px #00ffff; }
+    to { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+  }
+
+  /* ---- Form Container ---- */
+  form {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #0ff;
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 0 0 25px #0ff, inset 0 0 15px #0ff;
+    text-align: left;
+    animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px #0ff, inset 0 0 5px #0ff; }
+    50% { box-shadow: 0 0 25px #0ff, inset 0 0 20px #0ff; }
+    100% { box-shadow: 0 0 10px #0ff, inset 0 0 5px #0ff; }
+  }
+
+  /* ---- Labels & Inputs ---- */
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    color: #0ff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    background: rgba(0,255,255,0.1);
+  }
+
+  /* ---- Submit Button ---- */
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  input[type="submit"]:hover {
+    color: #000;
+    background: #0ff;
+    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
+    transform: scale(1.05);
+  }
+
+  /* ---- Neon Floating Background Orbs ---- */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.1);
+    filter: blur(50px);
+    animation: float 15s infinite ease-in-out;
+  }
+
+  .orb:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .orb:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 5s;
+  }
+
+  @keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, 60px) scale(1.3); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="orb"></div>
+  <div class="orb"></div>
+
+  <h1><u>Add Products</u></h1>
+
+  <form action="aps" method="post" id="productForm">
+    <label for="pcode">Product Code</label>
+    <input type="text" id="pcode" name="pcode" required>
+
+    <label for="pname">Product Name</label>
+    <input type="text" id="pname" name="pname" required>
+
+    <label for="pcompany">Product Company</label>
+    <input type="text" id="pcompany" name="pcompany" required>
+
+    <label for="pprice">Product Price</label>
+    <input type="text" id="pprice" name="pprice" required>
+
+    <label for="pqty">Product Quantity</label>
+    <input type="text" id="pqty" name="pqty" required>
+
+    <input type="submit" value="Add Product">
+  </form>
+
+<!-- ===== JavaScript ===== -->
+<script>
+  // Smooth fade-in effect for page
+  document.body.style.opacity = "0";
+  document.body.style.transition = "opacity 1.5s ease";
+  window.onload = function() {
+    document.body.style.opacity = "1";
+  };
+
+  // Simple form validation visual (highlight invalid fields)
+  const form = document.getElementById("productForm");
+  form.addEventListener("submit", (e) => {
+    const inputs = form.querySelectorAll("input[type='text']");
+    let valid = true;
+    inputs.forEach((input) => {
+      if (input.value.trim() === "") {
+        input.style.borderColor = "#f00";
+        input.style.boxShadow = "0 0 10px #f00";
+        valid = false;
+      } else {
+        input.style.borderColor = "#0ff";
+        input.style.boxShadow = "0 0 15px #0ff";
+      }
+    });
+    if (!valid) {
+      e.preventDefault();
+      alert("Please fill all fields!");
+    }
+  });
+</script>
+</body>
+</html>
